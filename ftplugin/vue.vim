@@ -17,6 +17,8 @@ function! vue#IdentifySyntaxRegion()
     return 'css'
   elseif l:content =~ '<script \+lang="ts"[^>]*>'
     return 'typescript'
+  elseif l:content =~ '<script \+lang="coffee"[^>]*>'
+    return 'coffee'
   elseif l:content =~ '<script[^>]*>'
     return 'javascript'
   elseif l:content =~ '<template \+lang="pug"[^>]*>'
@@ -39,7 +41,7 @@ function! vue#SetConfigs()
     setlocal commentstring=//-\ %s
   elseif l:type =~ 'typescript\|javascript\|scss\|stylus' && &commentstring != '// %s'
     setlocal commentstring=//\ %s
-  elseif l:type == 'yaml' && &commentstring != '# %s'
+  elseif l:type =~ 'yaml\|coffee' && &commentstring != '# %s'
     setlocal commentstring=#\ %s
   endif
 endfunction

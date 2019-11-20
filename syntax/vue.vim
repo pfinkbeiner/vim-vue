@@ -20,6 +20,9 @@ unlet! b:current_syntax
 silent! syntax include @javascript syntax/javascript.vim
 unlet! b:current_syntax
 
+silent! syntax include @coffee syntax/coffee.vim
+unlet! b:current_syntax
+
 silent! syntax include @typescript syntax/typescript.vim
 unlet! b:current_syntax
 
@@ -36,6 +39,7 @@ syntax region  vueTagName contained start=/<\/\?\(template\|script\|style\|i18n\
 
 syntax region  vueTemplate keepend start=/<template \+lang="pug"[^>]*>/ end=/<\/template>/ contains=@pug,vueTagName fold
 syntax region  vueScript keepend start=/<script[^>]*>/ end=/<\/script>/ contains=@javascript,vueTagName fold
+syntax region  vueScript keepend start=/<script \+lang="coffee"[^>]*>/ end=/<\/script>/ contains=@coffee,vueTagName fold
 syntax region  vueScript keepend start=/<script \+lang="ts"[^>]*>/ end=/<\/script>/ contains=@typescript,vueTagName fold
 syntax region  vueStyle keepend start=/<style[^>]*>/ end=/<\/style>/ contains=@css,vueTagName fold
 syntax region  vueStyle keepend start=/<style \+lang="scss"[^>]*>/ end=/<\/style>/ contains=@scss,vueTagName fold
